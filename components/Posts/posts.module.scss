@@ -1,7 +1,7 @@
 .posts {
   display: flex;
   align-items: center;
-  .postsItem {
+  a {
     display: block;
     width: 45%;
     border: 1px solid #f4f3f3;
@@ -37,8 +37,8 @@
       align-items: center;
       span {
         display: block;
-        width: 11px;
-        height: 11px;
+        width: 10px;
+        height: 10px;
         background-color: #00c4ff;
         border-radius: 100%;
         margin-right: 7px;
