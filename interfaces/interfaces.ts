@@ -5,7 +5,7 @@ export interface IPost {
   title: string;
   category: string;
   description: string;
-  slug: string;
+  mainColor: string;
   categoryColor: string;
   categoryLink: string;
 }

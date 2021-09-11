@@ -1,9 +1,9 @@
 ---
 id: '1'
-slug: 'how-i-learend-javascript'
 title: 'Как я изучил JavaScript'
 date: '11.09.2021'
 poster: '51444542302_25f94394b7_b.jpg'
+mainColor: '247, 223, 29'
 category: 'Программирование'
 categoryColor: '00C4FF'
 categoryLink: 'programming'

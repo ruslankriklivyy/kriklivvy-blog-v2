@@ -28,6 +28,11 @@ const Posts: React.FC<IPostsProps> = ({ posts }) => {
                 height={500}
               />
             </div>
+            <div
+              className={s.mainColor}
+              style={{
+                boxShadow: `0 20px 30px rgba(${frontmatter.mainColor}, 0.6)`,
+              }}></div>
             <div className={s.postsItemInfo}>
               <div className={s.postsItemCategory}>
                 <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
