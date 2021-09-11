@@ -51,6 +51,9 @@ body {
     div[class*='post_post__'] {
       background-color: #192028;
     }
+    div[class*='posts_postsItemInfo__'] {
+      border: none;
+    }
   }
 }
 

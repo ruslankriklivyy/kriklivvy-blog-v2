@@ -7,6 +7,8 @@ import { IPost } from '../../interfaces/interfaces';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 
 import s from './post.module.scss';
 import Layout from '../../layouts/Layout';

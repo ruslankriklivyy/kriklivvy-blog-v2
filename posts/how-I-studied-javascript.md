@@ -14,4 +14,5 @@ description: 'Расскажу о том как я будучи гуманита
 Вот ссылка <a href="/">TypeScript</a>
 <br/>
 <br/>
+
 <img src="https://thumb.tildacdn.com/tild6465-6132-4937-b964-336163313261/-/resize/824x/-/format/webp/mem-2-1024x683.jpg" alt="image" />
