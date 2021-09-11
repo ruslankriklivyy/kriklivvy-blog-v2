@@ -1,4 +1,5 @@
 import '../styles/globals.scss';
+import 'prismjs/themes/prism-tomorrow.css';
 import NextNprogress from 'nextjs-progressbar';
 import type { AppProps } from 'next/app';
 

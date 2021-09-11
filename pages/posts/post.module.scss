@@ -4,6 +4,9 @@
     line-height: 1.7;
     font-weight: 700;
   }
+  pre[class*='language-'] {
+    height: 600px;
+  }
   .postInfo {
     display: flex;
     margin-top: 8px;

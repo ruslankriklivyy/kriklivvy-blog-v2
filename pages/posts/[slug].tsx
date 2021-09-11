@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 import marked from 'marked';
 import React from 'react';
 import { IPost } from '../../interfaces/interfaces';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-jsx.min';
+import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
 
 import s from './post.module.scss';
 import Layout from '../../layouts/Layout';
@@ -16,6 +19,10 @@ interface IPostProps {
 }
 
 const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
+  React.useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <Layout name={frontmatter.title}>
       <div className={s.post}>
