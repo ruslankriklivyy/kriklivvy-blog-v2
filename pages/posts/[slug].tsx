@@ -28,15 +28,15 @@ const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
       <div className={s.post}>
         <h2>{frontmatter.title}</h2>
         <div className={s.postInfo}>
-          <a href="#" className={s.postCategory}>
-            <span></span>
+          <a href={`/category/${frontmatter.categoryLink}`} className={s.postCategory}>
+            <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
             <p>{frontmatter.category}</p>
           </a>
           <div className={s.postDate}>
             <p>Дата: {frontmatter.date}</p>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <div className={s.postContent} dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </Layout>
   );

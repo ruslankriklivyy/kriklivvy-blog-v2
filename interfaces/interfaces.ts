@@ -6,6 +6,8 @@ export interface IPost {
   category: string;
   description: string;
   slug: string;
+  categoryColor: string;
+  categoryLink: string;
 }
 
 export interface IPostResponse {

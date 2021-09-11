@@ -25,9 +25,9 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      <a href="#" className={s.logo}>
-        Kriklivvy Blog
-      </a>
+      <Link href="/">
+        <a className={s.logo}>Kriklivvy Blog</a>
+      </Link>
       <div className={s.headerRight}>
         <nav className={s.nav}>
           <ul className={s.menu}>

@@ -1,4 +1,7 @@
 .post {
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 20px;
   h2 {
     font-size: 42px;
     line-height: 1.7;
@@ -6,6 +9,19 @@
   }
   pre[class*='language-'] {
     height: 600px;
+  }
+  .postContent {
+    font-size: 20px;
+    line-height: 1.7;
+    a {
+      color: #ffbe76;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+    img {
+      width: 100%;
+    }
   }
   .postInfo {
     display: flex;
@@ -16,6 +32,10 @@
       display: inline-flex;
       align-items: center;
       margin-right: 20px;
+      color: #afafaf;
+      &:hover {
+        text-decoration: underline !important;
+      }
       span {
         display: block;
         width: 10px;

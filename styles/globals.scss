@@ -24,9 +24,11 @@ body {
         color: #f0f4f9 !important;
       }
     }
-    a[class*='posts_postsItem__'] {
-      border: none;
-      background-color: #192028;
+    div[class*='posts_posts__'] {
+      a {
+        border: none;
+        background-color: #192028;
+      }
     }
     div[class*='posts_postsItemInfo__'] {
       color: #f0f4f9;
@@ -37,6 +39,17 @@ body {
     div[class*='about_about__'] {
       background-color: #192028;
       color: #fff;
+    }
+    div[class*='post_post__'] {
+      h2 {
+        color: #fff;
+      }
+    }
+    div[class*='post_postContent__'] {
+      color: #fff;
+    }
+    div[class*='post_post__'] {
+      background-color: #192028;
     }
   }
 }

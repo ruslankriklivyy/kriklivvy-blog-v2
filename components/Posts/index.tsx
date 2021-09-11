@@ -30,7 +30,8 @@ const Posts: React.FC<IPostsProps> = ({ posts }) => {
             </div>
             <div className={s.postsItemInfo}>
               <div className={s.postsItemCategory}>
-                <span></span> <p>{frontmatter.category}</p>
+                <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>{' '}
+                <p>{frontmatter.category}</p>
               </div>
               <h2 className={s.postsItemName}>{frontmatter.title}</h2>
               <p className={s.postsItemDescr}>{frontmatter.description}</p>
