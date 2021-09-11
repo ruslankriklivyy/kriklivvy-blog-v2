@@ -7,8 +7,9 @@ import { IPost } from '../../interfaces/interfaces';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
-import Zoom from 'react-medium-image-zoom';
-import 'react-medium-image-zoom/dist/styles.css';
+import 'gitalk/dist/gitalk.css';
+import 'gitalk/dist/gitalk.css';
+import Gitalk from 'gitalk';
 
 import s from './post.module.scss';
 import Layout from '../../layouts/Layout';
@@ -25,6 +26,20 @@ const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
     Prism.highlightAll();
   }, []);
 
+  React.useEffect(() => {
+    const gitalk = new Gitalk({
+      clientID: 'f830156d260e6218807c',
+      clientSecret: '0df77ececfca0222cbd5cde154f3907e93001ed8',
+      repo: 'comments-data',
+      owner: 'ruslankriklivyy',
+      admin: ['ruslankriklivyy'],
+      id: frontmatter.id,
+      distractionFreeMode: false,
+    });
+
+    gitalk.render('gitalk-container');
+  }, [frontmatter.id]);
+
   return (
     <Layout name={frontmatter.title}>
       <div className={s.post}>
@@ -39,6 +54,7 @@ const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
           </div>
         </div>
         <div className={s.postContent} dangerouslySetInnerHTML={{ __html: content }} />
+        <div id="gitalk-container"></div>
       </div>
     </Layout>
   );
