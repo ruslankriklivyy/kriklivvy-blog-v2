@@ -1,0 +1,62 @@
+.posts {
+  display: flex;
+  align-items: center;
+  .postsItem {
+    display: block;
+    width: 45%;
+    border: 1px solid #f4f3f3;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 0.2s ease;
+    min-height: 400px;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 20px rgb(24 39 75 / 3%);
+    }
+    .postsItemPoster {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      > div {
+        display: block !important;
+      }
+      img {
+        display: block;
+        width: 100% !important;
+        height: 260px !important;
+        object-fit: cover;
+      }
+    }
+    .postsItemInfo {
+      padding: 25px;
+    }
+    .postsItemCategory {
+      display: flex;
+      align-items: center;
+      span {
+        display: block;
+        width: 11px;
+        height: 11px;
+        background-color: #00c4ff;
+        border-radius: 100%;
+        margin-right: 7px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    .postsItemName {
+      margin: 7px 0;
+      font-size: 27px;
+    }
+    .postsItemDescr {
+      font-size: 16px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
