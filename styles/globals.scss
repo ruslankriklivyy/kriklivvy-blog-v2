@@ -31,6 +31,12 @@ body {
         background-color: #192028;
       }
     }
+    div[class*='posts_categories__'] {
+      a {
+        border: none;
+        background-color: #192028;
+      }
+    }
     div[class*='posts_postsItemInfo__'] {
       color: #f0f4f9;
     }

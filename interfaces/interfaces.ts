@@ -8,6 +8,7 @@ export interface IPost {
   mainColor: string;
   categoryColor: string;
   categoryLink: string;
+  type: string;
 }
 
 export interface IPostResponse {
