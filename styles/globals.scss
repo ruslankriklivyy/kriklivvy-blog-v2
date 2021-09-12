@@ -74,6 +74,9 @@ body {
   background-color: #fff;
   padding: 60px;
   border-radius: 20px;
+  @media (max-width: 520px) {
+    padding: 25px;
+  }
   h2 {
     font-size: 42px;
     line-height: 1.2;
@@ -152,7 +155,7 @@ nav {
 
 .container {
   max-width: 995px;
-  padding: 0 15px;
+  padding: 0 13px;
   margin: 0 auto;
   min-height: 100%;
   display: flex;
