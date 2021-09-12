@@ -88,6 +88,12 @@ body {
     img {
       width: 100%;
     }
+    strong {
+      background: rgba($color: #ffbe76, $alpha: 0.2);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 500;
+    }
   }
 }
 
