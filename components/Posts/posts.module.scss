@@ -1,4 +1,14 @@
-.posts {
+.notes {
+  a {
+    min-height: 180px !important;
+    .postsItemPoster {
+      display: none;
+    }
+  }
+}
+
+.posts,
+.notes {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
