@@ -12,9 +12,9 @@ body {
   background-color: #f7f8f8;
   &.dark {
     background-color: #0e141b;
-    a[class*='header_logo__'] {
-      color: #f0f4f9;
-    }
+    // a[class*='header_logo__'] {
+    //   color: #f0f4f9;
+    // }
     li[class*='header_menuItem__'] {
       a {
         color: #f0f4f9 !important;
@@ -41,15 +41,15 @@ body {
       background-color: #192028;
       color: #fff;
     }
-    div[class*='post_post__'] {
+    .box-content {
       h2 {
         color: #fff;
       }
     }
-    div[class*='post_postContent__'] {
+    .box {
       color: #fff;
     }
-    div[class*='post_post__'] {
+    .box {
       background-color: #192028;
     }
     div[class*='posts_postsItemInfo__'] {
@@ -60,6 +60,33 @@ body {
         border: none;
         background-color: #192028;
       }
+    }
+  }
+}
+
+.box {
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 20px;
+  h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  pre[class*='language-'] {
+    height: 600px;
+  }
+  &-content {
+    font-size: 20px;
+    line-height: 1.7;
+    a {
+      color: #ffbe76;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+    img {
+      width: 100%;
     }
   }
 }

@@ -21,7 +21,7 @@ interface IPostProps {
   content: any;
 }
 
-const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
+const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }) => {
   React.useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -43,18 +43,20 @@ const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }: any) => {
   return (
     <Layout name={frontmatter.title}>
       <div className={s.post}>
-        <h2>{frontmatter.title}</h2>
-        <div className={s.postInfo}>
-          <a href={`/category/${frontmatter.categoryLink}`} className={s.postCategory}>
-            <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
-            <p>{frontmatter.category}</p>
-          </a>
-          <div className={s.postDate}>
-            <p>Дата: {frontmatter.date}</p>
+        <div className="box">
+          <h2>{frontmatter.title}</h2>
+          <div className={s.postInfo}>
+            <a href={`/category/${frontmatter.categoryLink}`} className={s.postCategory}>
+              <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
+              <p>{frontmatter.category}</p>
+            </a>
+            <div className={s.postDate}>
+              <p>Дата: {frontmatter.date}</p>
+            </div>
           </div>
+          <div className="box-content" dangerouslySetInnerHTML={{ __html: content }} />
+          <div id="gitalk-container"></div>
         </div>
-        <div className={s.postContent} dangerouslySetInnerHTML={{ __html: content }} />
-        <div id="gitalk-container"></div>
       </div>
     </Layout>
   );

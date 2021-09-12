@@ -9,3 +9,8 @@ categoryColor: 'C6C6C6'
 categoryLink: 'books'
 description: 'Читаю я не так много как хотелось бы, но мне есть что посоветовать.'
 ---
+
+Первое что сразу хочется выделить это книгу Кафки "Превращение", она короткая, но меткая в плане аллегории.
+<br/>
+<br/>
+<img src="https://briefly.ru/static/cache/illustrations/720/7.jpeg?1579590108" alt="image" />
