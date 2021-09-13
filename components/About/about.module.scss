@@ -8,6 +8,10 @@
     @media (max-width: 799px) {
       text-align: center;
     }
+    @media (max-width: 550px) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
   }
   .aboutTop {
     display: flex;
