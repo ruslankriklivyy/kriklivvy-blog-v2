@@ -12,9 +12,13 @@ body {
   background-color: #f7f8f8;
   &.dark {
     background-color: #0e141b;
-    // a[class*='header_logo__'] {
-    //   color: #f0f4f9;
-    // }
+    .github:hover {
+      svg {
+        path {
+          fill: #fff !important;
+        }
+      }
+    }
     li[class*='header_menuItem__'] {
       a {
         color: #f0f4f9 !important;
