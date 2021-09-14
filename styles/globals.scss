@@ -71,6 +71,45 @@ body {
         background-color: #192028;
       }
     }
+    .gt-container {
+      button {
+        &:last-child {
+          color: #fff !important;
+        }
+      }
+      .gt-comment-admin .gt-comment-content {
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.gt-container {
+  textarea {
+    font-family: 'Rubik', sans-serif;
+  }
+  button {
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffbe76 !important;
+    border: 2px solid #ffbe76 !important;
+    color: #000 !important;
+    &:last-child {
+      background-color: transparent !important;
+    }
+  }
+  a {
+    color: #ffbe76 !important;
+  }
+  .gt-ico-text {
+    color: #ffbe76;
+  }
+  .gt-svg svg {
+    fill: #ffbe76 !important;
+  }
+  .gt-comment-username {
+    color: #ffbe76 !important;
   }
 }
 
@@ -179,6 +218,10 @@ nav {
 
 * {
   box-sizing: border-box;
+  &::selection {
+    background-color: #ffbe76;
+    color: #000;
+  }
 }
 
 h1,
