@@ -11,6 +11,10 @@ export interface IPost {
   type: string;
 }
 
+export interface IMyLoaderImg {
+  src: string;
+}
+
 export interface IPostResponse {
   slug: string;
   frontmatter: IPost;

@@ -17,11 +17,10 @@ import { NextPage } from 'next';
 
 interface IPostProps {
   frontmatter: IPost;
-  slug: string;
   content: any;
 }
 
-const Post: NextPage<IPostProps> = ({ frontmatter, slug, content }) => {
+const Post: NextPage<IPostProps> = ({ frontmatter, content }) => {
   React.useEffect(() => {
     Prism.highlightAll();
   }, []);

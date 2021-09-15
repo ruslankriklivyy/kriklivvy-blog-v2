@@ -2,8 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 
 import s from './about.module.scss';
+import { IMyLoaderImg } from '../../interfaces/interfaces';
 
-const myLoader = ({ src }: any) => {
+const myLoader = ({ src }: IMyLoaderImg) => {
   return `https://live.staticflickr.com/65535/${src}`;
 };
 

@@ -15,11 +15,10 @@ import s from '../posts/post.module.scss';
 
 interface INoteProps {
   frontmatter: IPost;
-  slug: string;
   content: any;
 }
 
-const Note: React.FC<INoteProps> = ({ frontmatter, slug, content }) => {
+const Note: React.FC<INoteProps> = ({ frontmatter, content }) => {
   React.useEffect(() => {
     Prism.highlightAll();
   }, []);

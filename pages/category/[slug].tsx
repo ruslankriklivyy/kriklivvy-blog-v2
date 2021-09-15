@@ -7,8 +7,15 @@ import Link from 'next/link';
 import { GetStaticPaths } from 'next';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
+import { IPostResponse } from '../../interfaces/interfaces';
 
-const CategoryType = ({ category, posts, notes }: any) => {
+interface ICategoryTypeProps {
+  category: string;
+  posts: IPostResponse[];
+  notes: IPostResponse[];
+}
+
+const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) => {
   const filteredPosts = posts.filter((post) => post.frontmatter.categoryLink === category);
   const filteredNotes = notes.filter((post) => post.frontmatter.categoryLink === category);
 

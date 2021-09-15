@@ -2,8 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 
 import s from './posts.module.scss';
+import { IMyLoaderImg } from '../../interfaces/interfaces';
 
-const myLoader = ({ src }: any) => {
+const myLoader = ({ src }: IMyLoaderImg) => {
   return `https://live.staticflickr.com/65535/${src}`;
 };
 
@@ -25,7 +26,6 @@ const PostItem: React.FC<IPostItemProps> = ({
   category,
 }) => {
   return (
-    // <a>
     <>
       <div className={s.postsItemPoster}>
         <Image loader={myLoader} src={poster} alt="poster jpg" width={500} height={500} />
@@ -44,7 +44,6 @@ const PostItem: React.FC<IPostItemProps> = ({
         <p className={s.postsItemDescr}>{description}</p>
       </div>
     </>
-    // </a>
   );
 };
 
