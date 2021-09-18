@@ -24,15 +24,16 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
   return (
     <Layout name="Category">
       <div className={s.categories}>
-        {data.map(({ slug, frontmatter }) => (
-          <Link
-            href={frontmatter.type === 'post' ? `/posts/${slug}` : `/notes/${slug}`}
-            key={frontmatter.id}>
-            <a>
-              <PostItem {...frontmatter} />
-            </a>
-          </Link>
-        ))}
+        {data &&
+          data.map(({ slug, frontmatter }) => (
+            <Link
+              href={frontmatter.type === 'post' ? `/posts/${slug}` : `/notes/${slug}`}
+              key={frontmatter.id}>
+              <a>
+                <PostItem {...frontmatter} />
+              </a>
+            </Link>
+          ))}
       </div>
     </Layout>
   );
