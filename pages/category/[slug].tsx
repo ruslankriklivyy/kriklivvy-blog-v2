@@ -42,13 +42,13 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, data }) => {
 export default CategoryType;
 
 export async function getServerSideProps(context: any) {
-  const files = fs.readdirSync(path.join('../../posts'));
-  const notesFiles = fs.readdirSync(path.join('../../notes'));
+  const files = fs.readdirSync(path.join('posts'));
+  const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
 
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('../../posts', filename), 'utf-8');
+    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
     const { data: frontmatter } = matter(markdownWithMeta);
 
     return {
@@ -59,7 +59,7 @@ export async function getServerSideProps(context: any) {
 
   const notes = notesFiles.map((filename) => {
     const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('../../notes', filename), 'utf-8');
+    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
     const { data: frontmatter } = matter(markdownWithMeta);
 
     return {
