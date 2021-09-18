@@ -43,7 +43,7 @@ export default CategoryType;
 
 export async function getServerSideProps(context: any) {
   // const files = fs.readdirSync(path.join('posts'));
-  // const notesFiles = fs.readdirSync(path.join('notes'));
+  const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
 
   // const posts = files.map((filename) => {
@@ -57,21 +57,21 @@ export async function getServerSideProps(context: any) {
   //   };
   // });
 
-  // const notes = notesFiles.map((filename) => {
-  //   const slug = filename.replace('.md', '');
-  //   const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
-  //   const { data: frontmatter } = matter(markdownWithMeta);
+  const notes = notesFiles.map((filename) => {
+    const slug = filename.replace('.md', '');
+    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
+    const { data: frontmatter } = matter(markdownWithMeta);
 
-  //   return {
-  //     slug,
-  //     frontmatter,
-  //   };
-  // });
+    return {
+      slug,
+      frontmatter,
+    };
+  });
 
   return {
     props: {
       posts: [],
-      notes: [],
+      notes,
       category,
     },
   };
