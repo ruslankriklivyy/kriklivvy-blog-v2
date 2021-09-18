@@ -4,22 +4,22 @@ import path from 'path';
 import matter from 'gray-matter';
 import Layout from '../../layouts/Layout';
 import Link from 'next/link';
-import { GetStaticPaths } from 'next';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
 import { IPostResponse } from '../../interfaces/interfaces';
 
 interface ICategoryTypeProps {
   category: string;
-  posts: IPostResponse[];
-  notes: IPostResponse[];
+  // posts: IPostResponse[];
+  // notes: IPostResponse[];
+  data: IPostResponse[];
 }
 
-const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) => {
-  const filteredPosts = posts.filter((post) => post.frontmatter.categoryLink === category);
-  const filteredNotes = notes.filter((post) => post.frontmatter.categoryLink === category);
+const CategoryType: React.FC<ICategoryTypeProps> = ({ category, data }) => {
+  // const filteredPosts = posts.filter((post) => post.frontmatter.categoryLink === category);
+  // const filteredNotes = notes.filter((post) => post.frontmatter.categoryLink === category);
 
-  const data = [...filteredPosts, ...filteredNotes];
+  // const data = [...filteredPosts, ...filteredNotes];
 
   return (
     <Layout name="Category">
@@ -42,20 +42,20 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
 export default CategoryType;
 
 export async function getServerSideProps(context: any) {
-  // const files = fs.readdirSync(path.join('posts'));
+  const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
 
-  // const posts = files.map((filename) => {
-  //   const slug = filename.replace('.md', '');
-  //   const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-  //   const { data: frontmatter } = matter(markdownWithMeta);
+  const posts = files.map((filename) => {
+    const slug = filename.replace('.md', '');
+    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+    const { data: frontmatter } = matter(markdownWithMeta);
 
-  //   return {
-  //     slug,
-  //     frontmatter,
-  //   };
-  // });
+    return {
+      slug,
+      frontmatter,
+    };
+  });
 
   const notes = notesFiles.map((filename) => {
     const slug = filename.replace('.md', '');
@@ -68,10 +68,11 @@ export async function getServerSideProps(context: any) {
     };
   });
 
+  const data = [...posts, ...notes].filter((item) => item.frontmatter.categoryLink === category);
+
   return {
     props: {
-      posts: [],
-      notes,
+      data,
       category,
     },
   };
