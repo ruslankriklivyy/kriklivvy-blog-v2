@@ -10,6 +10,7 @@ import 'prismjs/plugins/unescaped-markup/prism-unescaped-markup.min.js';
 import 'gitalk/dist/gitalk.css';
 import 'gitalk/dist/gitalk.css';
 import Gitalk from 'gitalk';
+import Link from 'next/link';
 import { IPost } from '../../interfaces/interfaces';
 import s from '../posts/post.module.scss';
 
@@ -43,10 +44,12 @@ const Note: React.FC<INoteProps> = ({ frontmatter, content }) => {
         <div className="box">
           <h2>{frontmatter.title}</h2>
           <div className={s.postInfo}>
-            <a href={`/category/${frontmatter.categoryLink}`} className={s.postCategory}>
-              <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
-              <p>{frontmatter.category}</p>
-            </a>
+            <Link href={`/category/${frontmatter.categoryLink}`}>
+              <a className={s.postCategory}>
+                <span style={{ backgroundColor: `#${frontmatter.categoryColor}` }}></span>
+                <p>{frontmatter.category}</p>
+              </a>
+            </Link>
             <div className={s.postDate}>
               <p>Дата: {frontmatter.date}</p>
             </div>
