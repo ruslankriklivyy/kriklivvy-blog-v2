@@ -41,52 +41,37 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
 
 export default CategoryType;
 
-// export async function getStaticPaths() {
-//   const files = [...fs.readdirSync(path.join('notes')), ...fs.readdirSync(path.join('posts'))];
-
-//   const paths = files.map((filename) => ({
-//     params: {
-//       slug: filename.replace('.md', ''),
-//     },
-//   }));
-
-//   return {
-//     paths, //indicates that no page needs be created at build time
-//     fallback: 'blocking', //indicates the type of fallback
-//   };
-// }
-
 export async function getServerSideProps(context: any) {
-  const files = fs.readdirSync(path.join('posts'));
-  const notesFiles = fs.readdirSync(path.join('notes'));
+  // const files = fs.readdirSync(path.join('posts'));
+  // const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
 
-  const posts = files.map((filename) => {
-    const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
+  // const posts = files.map((filename) => {
+  //   const slug = filename.replace('.md', '');
+  //   const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+  //   const { data: frontmatter } = matter(markdownWithMeta);
 
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  //   return {
+  //     slug,
+  //     frontmatter,
+  //   };
+  // });
 
-  const notes = notesFiles.map((filename) => {
-    const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
+  // const notes = notesFiles.map((filename) => {
+  //   const slug = filename.replace('.md', '');
+  //   const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
+  //   const { data: frontmatter } = matter(markdownWithMeta);
 
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  //   return {
+  //     slug,
+  //     frontmatter,
+  //   };
+  // });
 
   return {
     props: {
-      posts,
-      notes,
+      posts: [],
+      notes: [],
       category,
     },
   };
