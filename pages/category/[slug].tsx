@@ -21,10 +21,12 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
 
   const data = [...filteredPosts, ...filteredNotes];
 
+  console.log(data);
+
   return (
     <Layout name="Category">
       <div className={s.categories}>
-        {data &&
+        {data.length !== 0 &&
           data.map(({ slug, frontmatter }) => (
             <Link
               href={frontmatter.type === 'post' ? `/posts/${slug}` : `/notes/${slug}`}
