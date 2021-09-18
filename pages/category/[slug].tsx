@@ -56,7 +56,7 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
   };
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: any) {
   const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
