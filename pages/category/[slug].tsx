@@ -41,7 +41,7 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
 
 export default CategoryType;
 
-export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
+export async function getStaticPaths() {
   const files = [...fs.readdirSync(path.join('notes')), ...fs.readdirSync(path.join('posts'))];
 
   const paths = files.map((filename) => ({
@@ -52,9 +52,9 @@ export const getStaticPaths: GetStaticPaths<{ slug: string }> = async () => {
 
   return {
     paths, //indicates that no page needs be created at build time
-    fallback: 'blocking', //indicates the type of fallback
+    fallback: true, //indicates the type of fallback
   };
-};
+}
 
 export async function getStaticProps(context: any) {
   const files = fs.readdirSync(path.join('posts'));
