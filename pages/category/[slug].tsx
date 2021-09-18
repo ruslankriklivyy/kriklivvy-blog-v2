@@ -41,22 +41,22 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, posts, notes }) 
 
 export default CategoryType;
 
-export async function getStaticPaths() {
-  const files = [...fs.readdirSync(path.join('notes')), ...fs.readdirSync(path.join('posts'))];
+// export async function getStaticPaths() {
+//   const files = [...fs.readdirSync(path.join('notes')), ...fs.readdirSync(path.join('posts'))];
 
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace('.md', ''),
-    },
-  }));
+//   const paths = files.map((filename) => ({
+//     params: {
+//       slug: filename.replace('.md', ''),
+//     },
+//   }));
 
-  return {
-    paths, //indicates that no page needs be created at build time
-    fallback: 'blocking', //indicates the type of fallback
-  };
-}
+//   return {
+//     paths, //indicates that no page needs be created at build time
+//     fallback: 'blocking', //indicates the type of fallback
+//   };
+// }
 
-export async function getStaticProps(context: any) {
+export async function getServerSideProps(context: any) {
   const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
   const category = context.params.slug;
