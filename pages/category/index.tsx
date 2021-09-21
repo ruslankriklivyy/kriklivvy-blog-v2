@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../layouts/Layout';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -29,7 +29,7 @@ const Category: any = ({ data }) => {
 
 export default Category;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
   // const category = ctx.params?.slug;
