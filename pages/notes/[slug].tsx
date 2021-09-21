@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../layouts/Layout';
 import fs from 'fs';
-import marked from 'marked';
+import { GetStaticProps, GetStaticPropsContext } from 'next';
 import path from 'path';
 import matter from 'gray-matter';
 import Prism from 'prismjs';
@@ -79,16 +79,16 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }: any) {
-  const markdownWithMeta = fs.readFileSync(path.join('notes', slug + '.md'), 'utf-8');
+export const getStaticProps: GetStaticProps = async (ctx) => {
+  const markdownWithMeta = fs.readFileSync(path.join('notes', ctx.params?.slug + '.md'), 'utf-8');
 
   const { data: frontmatter, content } = matter(markdownWithMeta);
 
   return {
     props: {
       frontmatter,
-      slug,
+      slug: ctx.params?.slug,
       content,
     },
   };
-}
+};

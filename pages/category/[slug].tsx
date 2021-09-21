@@ -7,20 +7,14 @@ import Link from 'next/link';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
 import { IPostResponse } from '../../interfaces/interfaces';
+import { GetServerSideProps } from 'next';
 
 interface ICategoryTypeProps {
   category: string;
-  // posts: IPostResponse[];
-  // notes: IPostResponse[];
   data: IPostResponse[];
 }
 
-const CategoryType: React.FC<ICategoryTypeProps> = ({ category, data }) => {
-  // const filteredPosts = posts.filter((post) => post.frontmatter.categoryLink === category);
-  // const filteredNotes = notes.filter((post) => post.frontmatter.categoryLink === category);
-
-  // const data = [...filteredPosts, ...filteredNotes];
-
+const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
   return (
     <Layout name="Category">
       <div className={s.categories}>
@@ -41,10 +35,10 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ category, data }) => {
 
 export default CategoryType;
 
-export async function getServerSideProps(context: any) {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
-  const category = context.params.slug;
+  const category = ctx.params?.slug;
 
   const posts = files.map((filename) => {
     const slug = filename.replace('.md', '');
@@ -68,12 +62,13 @@ export async function getServerSideProps(context: any) {
     };
   });
 
-  const data = [...posts, ...notes].filter((item) => item.frontmatter.categoryLink === category);
+  const data = category
+    ? [...posts, ...notes].filter((item) => item.frontmatter.categoryLink === category)
+    : {};
 
   return {
     props: {
       data,
-      category,
     },
   };
-}
+};
