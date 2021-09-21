@@ -6,16 +6,13 @@ import Layout from '../../layouts/Layout';
 import Link from 'next/link';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
-import { IPostResponse } from '../../interfaces/interfaces';
+import { IPaths, IPostResponse } from '../../interfaces/interfaces';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { addCategoryPaths } from '../../utils/addCategoryPaths';
 
 interface ICategoryTypeProps {
   category: string;
   data: IPostResponse[];
-}
-
-interface IPaths {
-  params: { slug: string };
 }
 
 const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
@@ -44,27 +41,8 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const filesNotes = fs.readdirSync(path.join('notes'));
   let paths: IPaths[] = [];
 
-  [...filesPosts].forEach((filename) => {
-    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    paths.push({
-      params: {
-        slug: frontmatter.categoryLink.replace('.md', ''),
-      },
-    });
-  });
-
-  [...filesNotes].forEach((filename) => {
-    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    paths.push({
-      params: {
-        slug: frontmatter.categoryLink.replace('.md', ''),
-      },
-    });
-  });
+  addCategoryPaths(filesPosts, paths, 'posts');
+  addCategoryPaths(filesNotes, paths, 'notes');
 
   return {
     paths: [...paths],

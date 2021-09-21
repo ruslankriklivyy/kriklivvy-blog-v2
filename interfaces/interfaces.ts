@@ -19,3 +19,7 @@ export interface IPostResponse {
   slug: string;
   frontmatter: IPost;
 }
+
+export interface IPaths {
+  params: { slug: string };
+}
