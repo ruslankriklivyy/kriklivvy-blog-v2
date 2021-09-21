@@ -7,7 +7,7 @@ import Link from 'next/link';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
 import { IPostResponse } from '../../interfaces/interfaces';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 interface ICategoryTypeProps {
   category: string;
@@ -35,17 +35,35 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
 
 export default CategoryType;
 
-export const getStaticPaths: any = async (ctx) => {
-  const categories = ['anime', 'programming', 'books'];
+export const getStaticPaths: GetStaticPaths = async (ctx) => {
+  const filesPosts = fs.readdirSync(path.join('posts'));
+  const filesNotes = fs.readdirSync(path.join('notes'));
+  let paths: any = [];
 
-  const paths = categories.map((filename) => ({
-    params: {
-      slug: filename.replace('.md', ''),
-    },
-  }));
+  [...filesPosts].forEach((filename) => {
+    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+    const { data: frontmatter } = matter(markdownWithMeta);
+
+    paths.push({
+      params: {
+        slug: frontmatter.categoryLink.replace('.md', ''),
+      },
+    });
+  });
+
+  [...filesNotes].forEach((filename) => {
+    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
+    const { data: frontmatter } = matter(markdownWithMeta);
+
+    paths.push({
+      params: {
+        slug: frontmatter.categoryLink.replace('.md', ''),
+      },
+    });
+  });
 
   return {
-    paths,
+    paths: [...paths],
     fallback: false,
   };
 };
