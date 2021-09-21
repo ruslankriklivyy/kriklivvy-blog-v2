@@ -14,6 +14,10 @@ interface ICategoryTypeProps {
   data: IPostResponse[];
 }
 
+interface IPaths {
+  params: { slug: string };
+}
+
 const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
   return (
     <Layout name="Category">
@@ -38,7 +42,7 @@ export default CategoryType;
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
   const filesPosts = fs.readdirSync(path.join('posts'));
   const filesNotes = fs.readdirSync(path.join('notes'));
-  let paths: any = [];
+  let paths: IPaths[] = [];
 
   [...filesPosts].forEach((filename) => {
     const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
