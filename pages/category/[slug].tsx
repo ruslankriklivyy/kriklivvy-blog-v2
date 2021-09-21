@@ -17,7 +17,7 @@ interface ICategoryTypeProps {
 
 const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
   return (
-    <Layout name="Category">
+    <Layout name="Категории">
       <div className={s.categories}>
         {data.length !== 0 &&
           data.map(({ slug, frontmatter }) => (
