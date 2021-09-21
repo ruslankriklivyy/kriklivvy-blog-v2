@@ -7,7 +7,7 @@ import Link from 'next/link';
 import PostItem from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
 import { IPostResponse } from '../../interfaces/interfaces';
-import { GetServerSideProps } from 'next';
+import { GetStaticProps } from 'next';
 
 interface ICategoryTypeProps {
   category: string;
@@ -35,7 +35,22 @@ const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
 
 export default CategoryType;
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
+export const getStaticPaths: any = async (ctx) => {
+  const categories = ['anime', 'programming', 'books'];
+
+  const paths = categories.map((filename) => ({
+    params: {
+      slug: filename.replace('.md', ''),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const files = fs.readdirSync(path.join('posts'));
   const notesFiles = fs.readdirSync(path.join('notes'));
   const category = ctx.params?.slug;
