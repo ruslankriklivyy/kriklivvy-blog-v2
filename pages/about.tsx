@@ -4,7 +4,7 @@ import { Layout } from '../layouts/Layout';
 
 const AboutPage = () => {
   return (
-    <Layout name={'Обо мне'}>
+    <Layout name="Обо мне">
       <About />
     </Layout>
   );

@@ -15,7 +15,7 @@
     letter-spacing: 0.3px;
     background-color: #ffbe76;
     padding: 5px 10px;
-    border-radius: 15px;
+    border-radius: 5px;
     @media (max-width: 779px) {
       margin-bottom: 15px;
     }
@@ -68,7 +68,7 @@
       appearance: none;
       -moz-appearance: none;
       -webkit-appearance: none;
-      border-radius: 20px;
+      border-radius: 15px;
       cursor: pointer;
 
       &:checked {
