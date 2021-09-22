@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '../../layouts/Layout';
+import { Layout } from '../../layouts/Layout';
 import fs from 'fs';
-import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import path from 'path';
 import matter from 'gray-matter';
 import Prism from 'prismjs';
@@ -19,7 +19,7 @@ interface INoteProps {
   content: any;
 }
 
-const Note: React.FC<INoteProps> = ({ frontmatter, content }) => {
+const Note: NextPage<INoteProps> = ({ frontmatter, content }) => {
   React.useEffect(() => {
     Prism.highlightAll();
   }, []);
@@ -64,7 +64,7 @@ const Note: React.FC<INoteProps> = ({ frontmatter, content }) => {
 
 export default Note;
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const files = fs.readdirSync(path.join('notes'));
 
   const paths = files.map((filename) => ({
@@ -77,7 +77,7 @@ export async function getStaticPaths() {
     paths,
     fallback: false,
   };
-}
+};
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const markdownWithMeta = fs.readFileSync(path.join('notes', ctx.params?.slug + '.md'), 'utf-8');

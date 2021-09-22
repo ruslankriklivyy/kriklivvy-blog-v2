@@ -17,7 +17,7 @@ interface IPostItemProps {
   category: string;
 }
 
-const PostItem: React.FC<IPostItemProps> = ({
+export const PostItem: React.FC<IPostItemProps> = ({
   poster,
   mainColor,
   title,
@@ -46,5 +46,3 @@ const PostItem: React.FC<IPostItemProps> = ({
     </>
   );
 };
-
-export default PostItem;

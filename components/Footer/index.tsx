@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './footer.module.scss';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerLeft}>
@@ -112,5 +112,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

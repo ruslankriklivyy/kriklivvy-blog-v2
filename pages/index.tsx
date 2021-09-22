@@ -2,8 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import type { NextPage } from 'next';
-import { Posts } from '../components';
-import Layout from '../layouts/Layout';
+import { Posts } from '../components/Posts';
+import { Layout } from '../layouts/Layout';
 import { IPostResponse } from '../interfaces/interfaces';
 
 interface IHomeProps {

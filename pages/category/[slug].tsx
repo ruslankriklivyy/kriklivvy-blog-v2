@@ -2,12 +2,12 @@ import React from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Layout from '../../layouts/Layout';
+import { Layout } from '../../layouts/Layout';
 import Link from 'next/link';
-import PostItem from '../../components/Posts/PostItem';
+import { PostItem } from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
 import { IPaths, IPostResponse } from '../../interfaces/interfaces';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { addCategoryPaths } from '../../utils/addCategoryPaths';
 
 interface ICategoryTypeProps {
@@ -15,7 +15,7 @@ interface ICategoryTypeProps {
   data: IPostResponse[];
 }
 
-const CategoryType: React.FC<ICategoryTypeProps> = ({ data }) => {
+const CategoryType: NextPage<ICategoryTypeProps> = ({ data }) => {
   return (
     <Layout name="Категории">
       <div className={s.categories}>

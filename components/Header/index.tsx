@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import s from './header.module.scss';
 
-const Header = () => {
+export const Header = () => {
   const router = useRouter();
   const [toggleMode, setToggleMode] = React.useState(false);
 
@@ -54,5 +54,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

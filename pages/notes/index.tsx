@@ -4,11 +4,17 @@ import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
 
-import Layout from '../../layouts/Layout';
-import PostItem from '../../components/Posts/PostItem';
+import { Layout } from '../../layouts/Layout';
+import { PostItem } from '../../components/Posts/PostItem';
 import s from '../../components/Posts/posts.module.scss';
+import { NextPage } from 'next';
+import { IPostResponse } from '../../interfaces/interfaces';
 
-const Notes = ({ notes }) => {
+interface INotesProps {
+  notes: IPostResponse[];
+}
+
+const Notes: NextPage<INotesProps> = ({ notes }) => {
   return (
     <Layout name="Заметки">
       <div className={s.notes}>

@@ -1,13 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import { Footer, Header } from '../components';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 interface ILayout {
   children: React.ReactNode;
   name: String;
 }
 
-const Layout: React.FC<ILayout> = ({ children, name }) => {
+export const Layout: React.FC<ILayout> = ({ children, name }) => {
   return (
     <div className="container">
       <Head>
@@ -25,5 +26,3 @@ const Layout: React.FC<ILayout> = ({ children, name }) => {
     </div>
   );
 };
-
-export default Layout;

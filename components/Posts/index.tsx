@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 import s from './posts.module.scss';
 import { IPostResponse } from '../../interfaces/interfaces';
-import PostItem from './PostItem';
+import { PostItem } from './PostItem';
 
 interface IPostsProps {
   posts: IPostResponse[];
 }
 
-const Posts: React.FC<IPostsProps> = ({ posts }) => {
+export const Posts: React.FC<IPostsProps> = ({ posts }) => {
   return (
     <div className={s.posts}>
       {posts.map(({ slug, frontmatter }) => (
@@ -22,5 +22,3 @@ const Posts: React.FC<IPostsProps> = ({ posts }) => {
     </div>
   );
 };
-
-export default Posts;

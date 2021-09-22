@@ -8,7 +8,7 @@ const myLoader = ({ src }: IMyLoaderImg) => {
   return `https://live.staticflickr.com/65535/${src}`;
 };
 
-const About = () => {
+export const About = () => {
   return (
     <div className={s.about}>
       <div className={s.aboutTop}>
@@ -60,5 +60,3 @@ const About = () => {
     </div>
   );
 };
-
-export default About;

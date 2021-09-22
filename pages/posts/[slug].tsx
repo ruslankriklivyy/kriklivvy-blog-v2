@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import marked from 'marked';
 import React from 'react';
 import { IPost } from '../../interfaces/interfaces';
 import Prism from 'prismjs';
@@ -13,7 +12,7 @@ import Gitalk from 'gitalk';
 import Link from 'next/link';
 
 import s from './post.module.scss';
-import Layout from '../../layouts/Layout';
+import { Layout } from '../../layouts/Layout';
 import { NextPage } from 'next';
 
 interface IPostProps {
