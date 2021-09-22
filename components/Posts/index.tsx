@@ -9,7 +9,7 @@ interface IPostsProps {
   posts: IPostResponse[];
 }
 
-export const Posts: React.FC<IPostsProps> = ({ posts }) => {
+const Posts: React.FC<IPostsProps> = ({ posts }) => {
   return (
     <div className={s.posts}>
       {posts.map(({ slug, frontmatter }) => (
@@ -22,3 +22,5 @@ export const Posts: React.FC<IPostsProps> = ({ posts }) => {
     </div>
   );
 };
+
+export default Posts;

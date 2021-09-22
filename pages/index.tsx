@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import type { NextPage } from 'next';
-import { Posts } from '../components/Posts';
+import useInView from 'react-cool-inview';
+import dynamic from 'next/dynamic';
 import { Layout } from '../layouts/Layout';
 import { IPostResponse } from '../interfaces/interfaces';
 
@@ -10,10 +11,16 @@ interface IHomeProps {
   posts: IPostResponse[];
 }
 
+const Posts = dynamic(() => import('../components/Posts/index'));
+
 const Home: NextPage<IHomeProps> = ({ posts }) => {
+  const { observe, inView } = useInView({
+    onEnter: ({ unobserve }) => unobserve(),
+  });
+
   return (
     <Layout name={'Kriklivvy Blog - Блог о программировании и немного релаксии'}>
-      <Posts posts={posts} />
+      <div ref={observe}>{inView && <Posts posts={posts} />}</div>
     </Layout>
   );
 };
