@@ -3,10 +3,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import Link from 'next/link';
+import useInView from 'react-cool-inview';
+import dynamic from 'next/dynamic';
 
 import { Layout } from '../../layouts/Layout';
-import { PostItem } from '../../components/Posts/PostItem';
-import s from '../../components/Posts/posts.module.scss';
 import { NextPage } from 'next';
 import { IPostResponse } from '../../interfaces/interfaces';
 
@@ -14,18 +14,16 @@ interface INotesProps {
   notes: IPostResponse[];
 }
 
+const NotesComponent = dynamic(() => import('../../components/Notes'));
+
 const Notes: NextPage<INotesProps> = ({ notes }) => {
+  const { observe, inView } = useInView({
+    onEnter: ({ unobserve }) => unobserve(),
+  });
+
   return (
     <Layout name="Заметки">
-      <div className={s.notes}>
-        {notes.map(({ slug, frontmatter }) => (
-          <Link href={`/notes/${slug}`} key={frontmatter.id}>
-            <a>
-              <PostItem {...frontmatter} />
-            </a>
-          </Link>
-        ))}
-      </div>
+      <div ref={observe}>{inView && <NotesComponent notes={notes} />}</div>
     </Layout>
   );
 };
