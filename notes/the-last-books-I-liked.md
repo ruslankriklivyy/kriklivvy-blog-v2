@@ -15,3 +15,9 @@ description: 'Читаю я не так много как хотелось бы,
 <br/>
 <br/>
 <img src="https://briefly.ru/static/cache/illustrations/720/7.jpeg?1579590108" alt="image" />
+<br/>
+<br/>
+Так же недавно читал "Скотный двор" Джорджа Оруэлла. Она тоже короткая, зато интересная и чатается за один подход.
+<br/>
+<br/>
+<img src="https://kakoy-smysl.ru/wp-content/uploads/2020/10/dzhordzh-oruell-skotnyiy-dvor-870x400.jpeg" alt="image" />
