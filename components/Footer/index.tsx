@@ -5,8 +5,8 @@ export const Footer = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footerLeft}>
-        <h4>Ruslan Kriklivyy</h4>
-        <p>Frontend Developer (ReactJS, VueJS)</p>
+        <h4>Ruslan Kriklivyy (raven)</h4>
+        <p>Frontend Dev (ReactJS, VueJS)</p>
       </div>
       <div className={s.footerRight}>
         <nav>

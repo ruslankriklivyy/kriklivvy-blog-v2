@@ -26,7 +26,7 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Link href="/">
-        <a className={s.logo}>Kriklivvy Blog</a>
+        <a className={s.logo}>raven.web</a>
       </Link>
       <div className={s.headerRight}>
         <nav className={s.nav}>

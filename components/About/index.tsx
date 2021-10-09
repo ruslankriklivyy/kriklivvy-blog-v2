@@ -26,7 +26,7 @@ export const About = () => {
         <div className={s.aboutRight}>
           <Image
             loader={myLoader}
-            src="51445247762_8b17e988ac_b.jpg"
+            src="51570167505_4687cf0f9f_b.jpg"
             alt="avatar jpg"
             width={200}
             height={200}
