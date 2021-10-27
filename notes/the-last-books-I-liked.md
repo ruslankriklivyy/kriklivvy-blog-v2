@@ -2,7 +2,7 @@
 id: '3'
 type: 'note'
 title: 'Последние книги которые мне понравились'
-date: '12.09.2021'
+date: '12 September 2021 17:20 UTC'
 poster: '51454301505_d751b21416_b.jpg'
 mainColor: '66, 245, 224'
 category: 'Книги'

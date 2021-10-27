@@ -2,7 +2,7 @@
 id: '1'
 type: 'post'
 title: 'Как я изучил JavaScript'
-date: '11.09.2021'
+date: '11 September 2021 14:40 UTC'
 poster: '51444542302_25f94394b7_b.jpg'
 mainColor: '247, 223, 29'
 category: 'Программирование'

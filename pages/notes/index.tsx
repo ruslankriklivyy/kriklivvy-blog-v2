@@ -1,13 +1,11 @@
 import React from 'react';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import useInView from 'react-cool-inview';
 import dynamic from 'next/dynamic';
 
 import { Layout } from '../../layouts/Layout';
 import { NextPage } from 'next';
 import { IPostResponse } from '../../interfaces/interfaces';
+import { getData } from '../../utils/getData';
 
 interface INotesProps {
   notes: IPostResponse[];
@@ -30,18 +28,7 @@ const Notes: NextPage<INotesProps> = ({ notes }) => {
 export default Notes;
 
 export async function getStaticProps() {
-  const files = fs.readdirSync(path.join('notes'));
-
-  const notes = files.map((filename) => {
-    const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('notes', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  const notes = getData('notes');
 
   return {
     props: {

@@ -146,12 +146,16 @@ body {
     padding: 25px;
   }
   h2 {
-    font-size: 42px;
+    font-size: 39px;
     line-height: 1.2;
     font-weight: 700;
     @media (max-width: 550px) {
       font-size: 35px;
     }
+  }
+  h3 {
+    font-size: 26px;
+    line-height: 1.2;
   }
   pre[class*='language-'] {
     height: 600px;
@@ -181,6 +185,22 @@ body {
         padding: 3px 7px;
       }
     }
+  }
+}
+
+.main-list__item {
+  position: relative;
+  padding-left: 30px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 100%;
+    background-color: #ffbe76;
   }
 }
 

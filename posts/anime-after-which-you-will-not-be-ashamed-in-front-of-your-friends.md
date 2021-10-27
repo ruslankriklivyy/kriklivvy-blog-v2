@@ -2,7 +2,7 @@
 id: '2'
 type: 'post'
 title: 'Мои последние просмотренные аниме'
-date: '12.09.2021'
+date: '12 September 2021 14:00 UTC'
 poster: '51449822279_219ddeb3dd_b.jpg'
 mainColor: '30, 240, 165'
 category: 'Аниме'

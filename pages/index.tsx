@@ -1,11 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
 import type { NextPage } from 'next';
 import useInView from 'react-cool-inview';
 import dynamic from 'next/dynamic';
 import { Layout } from '../layouts/Layout';
 import { IPostResponse } from '../interfaces/interfaces';
+import { getData } from '../utils/getData';
 
 interface IHomeProps {
   posts: IPostResponse[];
@@ -28,18 +26,7 @@ const Home: NextPage<IHomeProps> = ({ posts }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const files = fs.readdirSync(path.join('posts'));
-
-  const posts = files.map((filename) => {
-    const slug = filename.replace('.md', '');
-    const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-    const { data: frontmatter } = matter(markdownWithMeta);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+  const posts = getData('posts');
 
   return {
     props: {

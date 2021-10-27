@@ -38,22 +38,28 @@ export const About = () => {
         <div className={s.aboutSkills}>
           <div className={s.aboutSkillsItem}>
             <h4>Frontend</h4>
-            <span>JavaScript / TypeScript</span>
-            <span>ReactJS / VueJS</span>
-            <span>Redux Saga / Redux Thunk / Redux Toolkit / MobX / Vuex</span>
-            <span>HTML, CSS (SCSS / SASS / Styled Components)</span>
-            <span>NextJS / GatsbyJS / NuxtJS</span>
-            <span>Formik / React Hook Form</span>
+            <ul>
+              <li className="main-list__item">JavaScript / TypeScript</li>
+              <li className="main-list__item">ReactJS / VueJS</li>
+              <li className="main-list__item">
+                Redux Saga / Redux Thunk / Redux Toolkit / MobX / Vuex
+              </li>
+              <li className="main-list__item">HTML, CSS (SCSS / SASS / Styled Components)</li>
+              <li className="main-list__item">NextJS / GatsbyJS / NuxtJS</li>
+              <li className="main-list__item">Formik / React Hook Form</li>
+            </ul>
           </div>
           <div className={s.aboutSkillsItem}>
             <h4>Other</h4>
-            <span>GitHab</span>
-            <span>FireBase</span>
-            <span>Axios</span>
-            <span>npm / yarn</span>
-            <span>JSON</span>
-            <span>GraphQL</span>
-            <span>React Cookie</span>
+            <ul>
+              <li className="main-list__item">GitHab</li>
+              <li className="main-list__item">FireBase</li>
+              <li className="main-list__item">Axios</li>
+              <li className="main-list__item">npm / yarn</li>
+              <li className="main-list__item">JSON</li>
+              <li className="main-list__item">GraphQL</li>
+              <li className="main-list__item">React Cookie</li>
+            </ul>
           </div>
         </div>
       </div>

@@ -81,26 +81,13 @@
       h4 {
         font-size: 22px;
       }
-      span {
-        position: relative;
-        display: block;
+      li {
         margin-top: 10px;
         font-size: 20px;
-        padding-left: 30px;
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 10px;
-          transform: translateY(-50%);
-          width: 7px;
-          height: 7px;
-          border-radius: 100%;
-          background-color: #ffbe76;
-        }
+
         @media (max-width: 799px) {
           padding-left: 0;
-          &::after {
+          &::before {
             display: none;
           }
         }
