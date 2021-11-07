@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+
 import { IPaths } from '../interfaces/interfaces';
 
 export const addCategoryPaths = (file: string[], paths: IPaths[], name: string) => {
