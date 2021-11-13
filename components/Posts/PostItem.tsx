@@ -27,9 +27,11 @@ export const PostItem: React.FC<IPostItemProps> = ({
 }) => {
   return (
     <>
-      <div className={s.postsItemPoster}>
-        <Image loader={myLoader} src={poster} alt="poster jpg" width={500} height={500} />
-      </div>
+      {poster && (
+        <div className={s.postsItemPoster}>
+          <Image loader={myLoader} src={poster} alt="poster jpg" width={500} height={500} />
+        </div>
+      )}
       <div
         className={s.mainColor}
         style={{
