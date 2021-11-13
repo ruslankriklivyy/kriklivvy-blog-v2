@@ -31,13 +31,13 @@ export const Header = () => {
       <div className={s.headerRight}>
         <nav className={s.nav}>
           <ul className={s.menu}>
-            <li className={router.pathname === '/' ? s.menuItemActive : s.menuItem}>
+            <li className={router?.pathname === '/' ? s.menuItemActive : s.menuItem}>
               <Link href="/">Главная</Link>
             </li>
-            <li className={router.pathname === '/notes' ? s.menuItemActive : s.menuItem}>
+            <li className={router?.pathname === '/notes' ? s.menuItemActive : s.menuItem}>
               <Link href="/notes">Заметки</Link>
             </li>
-            <li className={router.pathname === '/about' ? s.menuItemActive : s.menuItem}>
+            <li className={router?.pathname === '/about' ? s.menuItemActive : s.menuItem}>
               <Link href="/about">Обо мне</Link>
             </li>
           </ul>
