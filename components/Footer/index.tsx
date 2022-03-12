@@ -1,14 +1,15 @@
+import Link from 'next/link';
 import React from 'react';
 import s from './footer.module.scss';
 
 export const Footer = () => {
   return (
     <footer className={s.footer}>
-      <div className={s.footerLeft}>
+      {/* <div className={s.footerLeft}>
         <h4>Ruslan Kriklivyy (raven)</h4>
         <p>Frontend Dev (ReactJS, VueJS)</p>
-      </div>
-      <div className={s.footerRight}>
+      </div> */}
+      {/* <div className={s.footerRight}>
         <nav>
           <a className="github" href="https://github.com/ruslankriklivyy">
             <svg
@@ -60,6 +61,14 @@ export const Footer = () => {
             </svg>
           </a>
         </nav>
+      </div> */}
+      <div className={s.footerBottom}>
+        <span>
+          Develop by:{' '}
+          <Link href="/about">
+            <a className="link">Ruslan Kriklivyy</a>
+          </Link>
+        </span>
       </div>
     </footer>
   );

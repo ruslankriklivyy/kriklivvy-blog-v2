@@ -26,7 +26,9 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Link href="/">
-        <a className={s.logo}>raven.web</a>
+        <a className={s.logo}>
+          rixum<span>.dev</span>
+        </a>
       </Link>
       <div className={s.headerRight}>
         <nav className={s.nav}>
@@ -34,22 +36,27 @@ export const Header = () => {
             <li className={router.pathname === '/' ? s.menuItemActive : s.menuItem}>
               <Link href="/">Главная</Link>
             </li>
-            <li className={router.pathname === '/notes' ? s.menuItemActive : s.menuItem}>
+            {/* <li className={router.pathname === '/notes' ? s.menuItemActive : s.menuItem}>
               <Link href="/notes">Заметки</Link>
-            </li>
+            </li> */}
             <li className={router.pathname === '/about' ? s.menuItemActive : s.menuItem}>
               <Link href="/about">Обо мне</Link>
             </li>
           </ul>
         </nav>
-        <div className={s.toggleMode}>
+        {/* <div className={s.toggleMode}>
           <input
             type="checkbox"
             id="toggle"
             checked={toggleMode}
             onChange={() => handleMode(!toggleMode)}
           />
-        </div>
+        </div> */}
+        <button
+          className={toggleMode ? 'tdnn' : 'tdnn tdnn--day'}
+          onClick={() => handleMode(!toggleMode)}>
+          <div className={toggleMode ? 'moon' : 'moon sun'}></div>
+        </button>
       </div>
     </header>
   );

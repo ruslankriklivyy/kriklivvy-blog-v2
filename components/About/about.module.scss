@@ -1,7 +1,7 @@
 .about {
   background-color: #fff;
   padding: 35px;
-  border-radius: 5px;
+  border-radius: 15px;
   p {
     font-size: 20px;
     line-height: 1.7;
@@ -27,7 +27,7 @@
     }
   }
   .aboutRight {
-    width: 30%;
+    width: 200px;
     text-align: right;
     @media (max-width: 799px) {
       width: 100%;
@@ -36,21 +36,29 @@
     }
     img {
       display: block;
-      border-radius: 100%;
+      border-radius: 35px;
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
-  }
-  .aboutBottom {
-    margin-top: 40px;
-    h3 {
-      font-size: 28px;
-      @media (max-width: 799px) {
-        text-align: center;
+
+    .aboutRightBottom {
+      width: 100%;
+      margin-top: 10px;
+      nav {
+        justify-content: center;
       }
     }
   }
+  // .aboutBottom {
+  //   margin-top: 40px;
+  //   h3 {
+  //     font-size: 28px;
+  //     @media (max-width: 799px) {
+  //       text-align: center;
+  //     }
+  //   }
+  // }
   .aboutSkills {
     margin-top: 15px;
     display: flex;

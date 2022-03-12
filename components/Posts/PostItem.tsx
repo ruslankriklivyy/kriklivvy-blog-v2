@@ -30,11 +30,11 @@ export const PostItem: React.FC<IPostItemProps> = ({
       <div className={s.postsItemPoster}>
         <Image loader={myLoader} src={poster} alt="poster jpg" width={500} height={500} />
       </div>
-      <div
+      {/* <div
         className={s.mainColor}
         style={{
           boxShadow: `0 20px 30px rgba(${mainColor}, 0.6)`,
-        }}></div>
+        }}></div> */}
       <div className={s.postsItemInfo}>
         <div className={s.postsItemCategory}>
           <span style={{ backgroundColor: `#${categoryColor}` }}></span>

@@ -22,6 +22,7 @@ interface IPostProps {
 
 const Post: NextPage<IPostProps> = ({ frontmatter, content }) => {
   React.useEffect(() => {
+    console.log(frontmatter.date);
     Prism.highlightAll();
   }, []);
 
@@ -52,7 +53,7 @@ const Post: NextPage<IPostProps> = ({ frontmatter, content }) => {
               </a>
             </Link>
             <div className={s.postDate}>
-              <p>Дата: {frontmatter.date}</p>
+              <p>Дата: {frontmatter.date && new Date(frontmatter.date).toDateString()}</p>
             </div>
           </div>
           <div className="box-content" dangerouslySetInnerHTML={{ __html: content }} />

@@ -8,9 +8,12 @@
     flex-direction: column;
   }
   .logo {
-    font-weight: 600;
-    font-size: 31px;
+    font-weight: 700;
+    font-size: 34px;
     color: #0a192f;
+    span {
+      color: #9040bb;
+    }
   }
   .headerRight {
     display: flex;
@@ -20,7 +23,7 @@
       justify-content: center;
     }
     .nav {
-      margin-right: 20px;
+      margin-right: 30px;
       @media (max-width: 420px) {
         margin-right: 0;
         margin-bottom: 15px;
@@ -36,7 +39,7 @@
           display: block;
           color: #0a192f;
           font-weight: 600;
-          font-size: 18px;
+          font-size: 16px;
           opacity: 0.7;
         }
         &:first-child {

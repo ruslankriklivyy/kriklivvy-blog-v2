@@ -17,7 +17,7 @@ const Home: NextPage<IHomeProps> = ({ posts }) => {
   });
 
   return (
-    <Layout name={'Kriklivvy Blog - Блог о программировании и немного релаксии'}>
+    <Layout name={'rixum.dev'}>
       <div ref={observe}>{inView && <Posts posts={posts} />}</div>
     </Layout>
   );
