@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { formatDistanceToNow } from 'date-fns';
+import ruLocale from 'date-fns/locale/ru';
 import matter from 'gray-matter';
 import React from 'react';
 import { IPost } from '../../interfaces/interfaces';
@@ -53,7 +55,14 @@ const Post: NextPage<IPostProps> = ({ frontmatter, content }) => {
               </a>
             </Link>
             <div className={s.postDate}>
-              <p>Дата: {frontmatter.date && new Date(frontmatter.date).toDateString()}</p>
+              <p>
+                Опубликовано:{' '}
+                {frontmatter.date &&
+                  formatDistanceToNow(new Date(frontmatter.date), {
+                    locale: ruLocale,
+                    addSuffix: true,
+                  })}
+              </p>
             </div>
           </div>
           <div className="box-content" dangerouslySetInnerHTML={{ __html: content }} />
